@@ -1,4 +1,4 @@
-# Shopy
+# Shopy-API
 
 Este projeto é uma API [Spring Boot](http://projects.spring.io/spring-boot/) desenvolvida para servir como e-commerce.
 
@@ -26,9 +26,9 @@ Para rodar a aplicação você irá precisar de:
 
 ## Rodando a Aplicação Localmente
 
-Primeiro renomeie o arquivo `ApplicationExample.properties` em `algamoney-api/src/main/resources/`  para `applicatioin.properties` e preencha-o com os dados necessários correspondentes às configurações da sua máquina. 
+Primeiro renomeie o arquivo `ApplicationExample.properties` em `shopy/src/main/resources/`  para `applicatioin.properties` e preencha-o com os dados necessários correspondentes às configurações da sua máquina. 
 
-Há diversos caminhos para rodar uma aplicação com Spring Boot na sua máquina local. Um deles é executar o método `main` na classe `algamoney-api/src/main/java/com/example/algamoney/api` da sua IDE. Para tal sga os passos abaixo:
+Há diversos caminhos para rodar uma aplicação com Spring Boot na sua máquina local. Um deles é executar o método `main` na classe `shopy/src/main/java/com/anaclara/shopy` da sua IDE. Para tal sga os passos abaixo:
 1. Faça o Download do zip do projeto ou clone o repositório Git
 2. Extraia o conteúdo do zip
 3. Abra o Command Prompt e navegue ($cd) até a pasta contendo o pom.xml
@@ -65,7 +65,7 @@ O projeto tem uma estrutura de diretórios particular. Uma árvore representativ
 ├── src
 │   └── main
 │       └── java
-|            └── com.example.algamoney.api
+|            └── com.anaclara.shopy
 │                   ├── AlgamoneyApiApplication.java
 ├── src
 │   └── main
