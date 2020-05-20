@@ -1,0 +1,21 @@
+package com.anaclara.shopy.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.anaclara.shopy.domain.Categoria;
+import com.anaclara.shopy.repository.CategoriaRepository;
+
+@Service
+public class CategoriaService {
+
+	@Autowired
+	private CategoriaRepository repo;
+
+	public Categoria find(Integer id) {
+		Optional<Categoria> obj = repo.findById(id);
+		return obj.orElse(null);
+	}
+}
