@@ -1,4 +1,4 @@
-package com.anaclara.shopy.service.exceptions;
+package com.anaclara.shopy.services.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException {
 

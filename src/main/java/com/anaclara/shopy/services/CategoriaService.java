@@ -1,4 +1,4 @@
-package com.anaclara.shopy.service;
+package com.anaclara.shopy.services;
 
 import java.util.Optional;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.anaclara.shopy.domain.Categoria;
 import com.anaclara.shopy.repository.CategoriaRepository;
-import com.anaclara.shopy.service.exceptions.ObjectNotFoundException;
+import com.anaclara.shopy.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {

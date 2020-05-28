@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anaclara.shopy.domain.Categoria;
-import com.anaclara.shopy.service.CategoriaService;
+import com.anaclara.shopy.services.CategoriaService;
 
 @RestController
 @RequestMapping(value="/categorias")
