@@ -4,7 +4,8 @@ Este projeto é uma API [Spring Boot](http://projects.spring.io/spring-boot/) de
 
 ## Diagrama de Classes
 
-![Alt text](diagrama.png "Diagrama de classes")
+
+![Alt text](https://user-images.githubusercontent.com/28203278/83186379-d42dcf80-a102-11ea-8d44-cc34ab39b514.png)
 
 
 ## Requisitos da Máquina
