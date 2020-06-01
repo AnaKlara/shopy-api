@@ -1,12 +1,15 @@
 package com.anaclara.shopy.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.anaclara.shopy.domain.Categoria;
 import com.anaclara.shopy.repository.CategoriaRepository;
+import com.anaclara.shopy.services.exceptions.DataIntegrityException;
 import com.anaclara.shopy.services.exceptions.ObjectNotFoundException;
-import java.util.Optional;
 
 @Service
 public class CategoriaService {
@@ -33,5 +36,15 @@ public class CategoriaService {
 		return repo.save(obj);
 	}
 	
+	
+	public void delete(Integer id) {
+		find(id);
+		try {
+			repo.deleteById(id);
+		}
+		catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Não é possível excluir uma categoria que possui produtos");
+		}
+	}
 	
 }
