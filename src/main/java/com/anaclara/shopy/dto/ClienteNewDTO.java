@@ -2,6 +2,9 @@ package com.anaclara.shopy.dto;
 
 import java.io.Serializable;
 
+import com.anaclara.shopy.services.validation.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
