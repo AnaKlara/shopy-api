@@ -6,8 +6,12 @@ import java.util.List;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.anaclara.shopy.domain.Cliente;
 import com.anaclara.shopy.domain.enums.TipoCliente;
 import com.anaclara.shopy.dto.ClienteNewDTO;
+import com.anaclara.shopy.repository.ClienteRepository;
 import com.anaclara.shopy.resources.exception.FieldMessage;
 import com.anaclara.shopy.services.validation.utils.BR;
 
@@ -16,6 +20,9 @@ public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert
 	@Override
 	public void initialize(ClienteInsert ann) {
 	}
+	
+	@Autowired
+	private ClienteRepository repo;
 
 	@Override
 	public boolean isValid(ClienteNewDTO objDto, ConstraintValidatorContext context) {
@@ -28,6 +35,10 @@ public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert
 
 		if (objDto.getTipo().equals(TipoCliente.PESSOAJURIDICA.getCod()) && !BR.isValidCNPJ(objDto.getCpfOuCnpj())) {
 			list.add(new FieldMessage("cpfOuCnpj", "CNPJ inválido"));
+		}
+		Cliente aux = repo.findByEmail(objDto.getEmail());
+		if (aux != null) {
+			list.add(new FieldMessage("email", "Email já existente"));
 		}
 
 		for (FieldMessage e : list) {
