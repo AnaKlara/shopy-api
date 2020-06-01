@@ -35,19 +35,20 @@ public class Produto implements Serializable {
 	private Double preco;
 
 	// Em SGBDs relacional, quando temos um relacionamento entre duas tabelas de muitos/muitos, cria uma terceira tabela com os IDs das duas tabelas
-	@ManyToMany	// @ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-	@JoinTable(
-			  name = "PRODUTO_CATEGORIA", 
-			  joinColumns=@JoinColumn(name="produto_id", referencedColumnName="produto_id"), 
-			  inverseJoinColumns=@JoinColumn(name="categoria_id",referencedColumnName="categoria_id")    )
 	@JsonIgnore
+	@ManyToMany
+	@JoinTable(name = "PRODUTO_CATEGORIA",
+		joinColumns = @JoinColumn(name = "produto_id"),
+		inverseJoinColumns = @JoinColumn(name = "categoria_id")
+	)
 	private List<Categoria> categorias = new ArrayList<>();
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="id.produto")
 	private Set<ItemPedido> itens = new HashSet<>();
 	
-	public Produto() {}
+	public Produto() {
+	}
 
 	public Produto(Integer id, String nome, Double preco) {
 		super();
@@ -55,7 +56,6 @@ public class Produto implements Serializable {
 		this.nome = nome;
 		this.preco = preco;
 	}
-	
 
 	@JsonIgnore
 	public List<Pedido> getPedidos() {
@@ -66,7 +66,7 @@ public class Produto implements Serializable {
 		return lista;
 	}
 	
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -102,6 +102,7 @@ public class Produto implements Serializable {
 	public Set<ItemPedido> getItens() {
 		return itens;
 	}
+
 	public void setItens(Set<ItemPedido> itens) {
 		this.itens = itens;
 	}
