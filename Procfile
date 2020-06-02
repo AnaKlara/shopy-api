@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -Dspring.profiles.active=prod $JAVA_OPTS -jar target/shopy-0.0.1-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -Dspring.profiles.active=prod $JAVA_OPTS -jar target/shopy-0.0.1-SNAPSHOT.jar -Dspring.datasource.url=${JAWSDB_URL} -Dspring.mail.username=${GMAIL_USERNAME} -Dspring.mail.password=${GMAIL_PASSWORD}
