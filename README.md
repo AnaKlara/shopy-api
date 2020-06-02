@@ -36,7 +36,8 @@ Há diversos caminhos para rodar uma aplicação com Spring Boot na sua máquina
 4. Abra o eclipse
 5. Vá em: File -> Import -> Existing Maven Project -> Navegue até a pasta onde você extraiu o zip
 6. Selecione o projeto
-7. Choose the Spring Boot Application file (search for @SpringBootApplication)
+6.5. [Opcional] selecione em qual ambiente você deseja rodar a aplicação em application.properties: test, dev ou prod. A melhor opção para um primeiro contato seria test.
+7. Escolha o arqquivo Spring Boot Application (procure por @SpringBootApplication)
 8. Clique com o direito no arquivo e faça Run as Java Application
 
 Uma alternativa é utilizar o [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) com o comando:
