@@ -1,6 +1,7 @@
 #sensive data
 application-dev.properties
 ./src/main/resources/application-dev.properties
+src/main/resources/application-dev.properties
 
 HELP.md
 target/
