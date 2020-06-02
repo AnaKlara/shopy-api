@@ -48,6 +48,21 @@ mvn spring-boot:run
 
 ### Segurança
 
+No pom.xml é possível verificar as dependências externas utilizadas para adicionar funcionalidades de segurança ao projeto: 
+
+```
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
+```
+A classe de configuração `SecurityConfig` é usada para definir as configurações de segurança. Esta classe necessariamente herda de `WebSecurityConfigurerAdapter` para cumprir com os padrões da biblioteca.
 
 
 ### URLs
