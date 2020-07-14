@@ -15,11 +15,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.anaclara.shopy.domain.Cidade;
 import com.anaclara.shopy.domain.Cliente;
 import com.anaclara.shopy.domain.Endereco;
+import com.anaclara.shopy.domain.enums.Perfil;
 import com.anaclara.shopy.domain.enums.TipoCliente;
 import com.anaclara.shopy.dto.ClienteDTO;
 import com.anaclara.shopy.dto.ClienteNewDTO;
 import com.anaclara.shopy.repository.ClienteRepository;
 import com.anaclara.shopy.repository.EnderecoRepository;
+import com.anaclara.shopy.security.UserSS;
+import com.anaclara.shopy.services.exception.AuthorizationException;
 import com.anaclara.shopy.services.exceptions.DataIntegrityException;
 import com.anaclara.shopy.services.exceptions.ObjectNotFoundException;
 
@@ -36,6 +39,12 @@ public class ClienteService {
 	private BCryptPasswordEncoder pe;
 
 	public Cliente find(Integer id) {
+		
+		UserSS user = UserService.authenticated();
+		if (user==null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+		
 		Optional<Cliente> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
