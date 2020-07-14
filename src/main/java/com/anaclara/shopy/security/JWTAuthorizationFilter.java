@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 
+// para cada requisição, o sis verificará se o usuário tem permissão para acessar o recurso pedido
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
 	private JWTUtil jwtUtil;
@@ -27,6 +28,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 		this.userDetailsService = userDetailsService;
 	}
 
+	// método padrão do filtro, executa algo antes de prosseguir para fornecer o recurso pedido na requisição
 	@Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -34,17 +36,18 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
 		String header = request.getHeader("Authorization");
 		if (header != null && header.startsWith("Bearer ")) {
-			UsernamePasswordAuthenticationToken auth = getAuthentication(header.substring(7));
-			if (auth != null) {
+			UsernamePasswordAuthenticationToken auth = getAuthentication(header.substring(7)); // serve para capturarmos o token, ou seja, toa a string que vai no header sem o Bearer(7 primeiros carcteres)
+			if (auth != null) { // se for diferente de nulo significa que está tudo ok com meu token
 				SecurityContextHolder.getContext().setAuthentication(auth);
 			}
 		}
+		// depois de passar nos testes, o sys pode continuar normalmente
 		chain.doFilter(request, response);
 	}
 
 	private UsernamePasswordAuthenticationToken getAuthentication(String token) {
 		if (jwtUtil.tokenValido(token)) {
-			String username = jwtUtil.getUsername(token);
+			String username = jwtUtil.getUsername(token); // pega username dentro do token
 			UserDetails user = userDetailsService.loadUserByUsername(username);
 			return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 		}

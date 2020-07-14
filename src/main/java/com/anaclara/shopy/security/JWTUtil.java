@@ -28,7 +28,7 @@ public class JWTUtil {
 	
 
 	public boolean tokenValido(String token) {
-		Claims claims = getClaims(token);
+		Claims claims = getClaims(token); // claims é um tipo do JWT que armazena as reivindicações do token
 		if (claims != null) {
 			String username = claims.getSubject();
 			Date expirationDate = claims.getExpiration();
