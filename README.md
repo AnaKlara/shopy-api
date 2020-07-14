@@ -63,6 +63,9 @@ No pom.xml é possível verificar as dependências externas utilizadas para adic
 		</dependency>
 ```
 A classe de configuração `SecurityConfig` é usada para definir as configurações de segurança. Esta classe necessariamente herda de `WebSecurityConfigurerAdapter` para cumprir com os padrões da biblioteca.
+Todas as senhas de usuários são guardadas no banco de dados encodadas (Veja BCypts)
+Para utilizar o framework Spring Security é necessário criar a classe de usuário conforme o contrato do framework, implementar a interface `UserDetails` e o serviço descrito pela interface `UserdetailsService`. 
+
 
 
 ### URLs
@@ -82,7 +85,7 @@ O projeto tem uma estrutura de diretórios particular. Uma árvore representativ
 ├── src
 │   └── main
 │       └── java
-|            └── com.anaclara.shopy
+│            └── com.anaclara.shopy
 │                   ├── AlgamoneyApiApplication.java
 ├── src
 │   └── main
