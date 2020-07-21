@@ -81,12 +81,20 @@ O projeto tem uma estrutura de diretórios particular. Uma árvore representativ
 
 ```
 .
-├── algamoney-api
+├── shopy-api
 ├── src
 │   └── main
 │       └── java
 │            └── com.anaclara.shopy
-│                   ├── AlgamoneyApiApplication.java
+│                   ├── ShopyApiApplication.java
+│                   ├── config
+│                   ├── domain
+│                   ├── dto
+│                   ├── repository
+│                   ├── resources
+│                   ├── security
+│                   └── services
+│             
 ├── src
 │   └── main
 │       └── resources
@@ -104,10 +112,21 @@ O projeto tem uma estrutura de diretórios particular. Uma árvore representativ
 └── README.md
 ```
 
-## Pacotes
+## Pacotes & Arquivos
 
+- `config` — classes de configuração da aplicação
+- `domain` — classes para representar entidades modeladas
+- `dto` — Data Transfer Object/classes que lidam com a comunicação com o banco de dados
+- `repository` — classes que lidam com a comunicação com o banco de dados
+- `services` — classes para lidar com as regras de negócio
+- `security` — configurações de segurança da aplicação
+- `resource` — classes para ouvir/direcionar as requisições doc cliente
+- `resources/application.properties` — O Spring lê as propriedades definidas neste arquivo para configurar sua aplicação. Neste arquivo você pode definir a porta padrão do servidor, o context path do servidor, os URLs do banco de dados etc., neste arquivo
+- `pom.xml` - contém todas as dependências do projeto e suas respectivas configurações
 
 
 ## Cliente
 
+Como projeto complementar a este foi desenvolvido uma aplicação cliente com Angular que interage com esta aplicação. Verifique o repósitório [shopy-ui](https://github.com/AnaKlara/shopy-ui) no Github.
 
+Qualquer dúvida e/ou feedback escreva um e-mail para claracorreadasilva@gmail.com
