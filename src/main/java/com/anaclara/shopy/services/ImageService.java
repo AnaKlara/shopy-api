@@ -35,6 +35,7 @@ public class ImageService {
 		}
 	}
 
+	// transforma imagens em .png em .jpg
 	public BufferedImage pngToJpg(BufferedImage img) {
 		BufferedImage jpgImage = new BufferedImage(img.getWidth(), img.getHeight(),
 				BufferedImage.TYPE_INT_RGB);
