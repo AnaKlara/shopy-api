@@ -70,9 +70,36 @@ Para utilizar o framework Spring Security é necessário criar a classe de usuá
 
 ### URLs
 
+Todas as URLs terão a URI pré fixada. 
+Se estiver rodando localmente, a URI estará configurada em application.properties. Ex.: localhost:8080
+
 |  URL |  Método | Descrição |
 |----------|--------------|--------------|
-
+|/auth/forgot  |  POST | Solicitar nova senha para um cliente. |
+|/auth/refresh  |  POST | Solicitar refresh token |
+|/categorias/{id} | GET | Solicitar uma categoria baseada no ID |
+|/categorias | POST | Inserir uma categoria |
+|/categorias/{id} | PUT | Atualizar uma categoria baseada no ID |
+|/categorias/{id} | DELETE | Deletar uma categoria baseada no ID |
+|/categorias | GET | Recuperar todas as categorias |
+|/categorias/page | GET | Solicitar um grupo de categorias com paginação |
+|/clientes/{id} | GET | Recuperar um cliente baseado no ID |
+|/clientes      | POST | Inserir um cliente|
+|/clientes/{id}| PUT | Atualizar um cliente baseado em um ID |
+|/clientes/{id}| DELETE | Deletar um cliente baseado em um ID |
+|/clientes       | GET | Recuperar todos os clientes |
+|/clientes/page | GET | Recuperar um grupo de cliente baseado em paginação |
+|/clientes/picture  | POST | Salvar foto de perfil do cliente|
+|/pedidos/{id}     | GET | Recuperar pedido baseado em um ID |
+|/pedidos/{id}     | PUT | Atualizar pedido |
+|/pedidos     | POST | Criar novo pedido |
+|/pedidos     | GET | recuperar pedidos baseado em paginação |
+|/produtos       | GET | Recuperar grupo de produtos baseado em paginação |
+|/produtos/{id}  | GET | Recuperar produto específico baseado em um ID|
+|/produtos       | POST | Criar novo produto |
+|       | | |
+|       | | |
+|----------|--------------|--------------|
 
 
 ## Arquivos e Diretórios
