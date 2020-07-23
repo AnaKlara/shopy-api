@@ -13,7 +13,19 @@ Este projeto é uma API [Spring Boot](http://projects.spring.io/spring-boot/) de
 Para rodar a aplicação você irá precisar de:
 
 *   [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Java™ Platform, Standard Edition Development Kit 
-*   [Maven 3](https://maven.apache.org) - Gerenciador de Dependências
+*   [Maven 3](https://maven.apache.org) - Ge	public Cliente findByEmail(String email) {
+		UserSS user = UserService.authenticated();
+		if (user == null || !user.hasRole(Perfil.ADMIN) && !email.equals(user.getUsername())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+
+		Cliente obj = repo.findByEmail(email);
+		if (obj == null) {
+			throw new ObjectNotFoundException(
+					"Objeto não encontrado! Id: " + user.getId() + ", Tipo: " + Cliente.class.getName());
+		}
+		return obj;
+	}renciador de Dependências
 *   [Spring Boot](https://spring.io/projects/spring-boot) - Framework para facilitar o bootstrapping and desenvolvimento de novas aplicações Spring 
 *   [MySQL](https://www.mysql.com/) - Sistema de Gerenciamento de Banco de Dados Relacional Open-Source 
 *   [Git](https://git-scm.com/) - Sistema de Controle de Versão
@@ -84,6 +96,7 @@ Se estiver rodando localmente, a URI estará configurada em application.properti
 |/categorias | GET | Recuperar todas as categorias |
 |/categorias/page | GET | Solicitar um grupo de categorias com paginação |
 |/clientes/{id} | GET | Recuperar um cliente baseado no ID |
+|/clientes/email?value={example@email.com} | GET | Recuperar um cliente baseado no email |
 |/clientes      | POST | Inserir um cliente|
 |/clientes/{id}| PUT | Atualizar um cliente baseado em um ID |
 |/clientes/{id}| DELETE | Deletar um cliente baseado em um ID |
@@ -154,6 +167,6 @@ O projeto tem uma estrutura de diretórios particular. Uma árvore representativ
 
 ## Cliente
 
-Como projeto complementar a este foi desenvolvido uma aplicação cliente com Angular que interage com esta aplicação. Verifique o repósitório [shopy-ui](https://github.com/AnaKlara/shopy-ui) no Github.
+Como projeto complementar a este foi desenvolvido uma aplicação cliente com Angular/Ionic3 que interage com esta aplicação. Verifique o repósitório [shopy-ui](https://github.com/AnaKlara/shopy-ui) no Github.
 
 Qualquer dúvida e/ou feedback escreva um e-mail para claracorreadasilva@gmail.com
