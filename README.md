@@ -96,7 +96,7 @@ Se estiver rodando localmente, a URI estará configurada em application.properti
 |/categorias | GET | Recuperar todas as categorias |
 |/categorias/page | GET | Solicitar um grupo de categorias com paginação |
 |/clientes/{id} | GET | Recuperar um cliente baseado no ID |
-|/clientes/email?value={example@email.com} | GET | Recuperar um cliente baseado no email |
+|/clientes/email?value={} | GET | Recuperar um cliente baseado no email |
 |/clientes      | POST | Inserir um cliente|
 |/clientes/{id}| PUT | Atualizar um cliente baseado em um ID |
 |/clientes/{id}| DELETE | Deletar um cliente baseado em um ID |
@@ -110,9 +110,8 @@ Se estiver rodando localmente, a URI estará configurada em application.properti
 |/produtos       | GET | Recuperar grupo de produtos baseado em paginação |
 |/produtos/{id}  | GET | Recuperar produto específico baseado em um ID|
 |/produtos       | POST | Criar novo produto |
-|       | | |
-|       | | |
-|----------|--------------|--------------|
+|/estados       | GET | Recuperar estados |
+|/estados/{id}/cidades  | GET | Recuperar cidades baseado em no ID de um estado |
 
 
 ## Arquivos e Diretórios
