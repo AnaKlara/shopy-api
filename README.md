@@ -13,19 +13,7 @@ Este projeto é uma API [Spring Boot](http://projects.spring.io/spring-boot/) de
 Para rodar a aplicação você irá precisar de:
 
 *   [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Java™ Platform, Standard Edition Development Kit 
-*   [Maven 3](https://maven.apache.org) - Ge	public Cliente findByEmail(String email) {
-		UserSS user = UserService.authenticated();
-		if (user == null || !user.hasRole(Perfil.ADMIN) && !email.equals(user.getUsername())) {
-			throw new AuthorizationException("Acesso negado");
-		}
-
-		Cliente obj = repo.findByEmail(email);
-		if (obj == null) {
-			throw new ObjectNotFoundException(
-					"Objeto não encontrado! Id: " + user.getId() + ", Tipo: " + Cliente.class.getName());
-		}
-		return obj;
-	}renciador de Dependências
+*   [Maven 3](https://maven.apache.org) - Gerenciador de Dependências
 *   [Spring Boot](https://spring.io/projects/spring-boot) - Framework para facilitar o bootstrapping and desenvolvimento de novas aplicações Spring 
 *   [MySQL](https://www.mysql.com/) - Sistema de Gerenciamento de Banco de Dados Relacional Open-Source 
 *   [Git](https://git-scm.com/) - Sistema de Controle de Versão
