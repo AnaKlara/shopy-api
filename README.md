@@ -23,6 +23,7 @@ Para rodar a aplicação você irá precisar de:
 
 * [Postman](https://www.getpostman.com/) - API Development Environment (Testing Documentation)
 * [Thymeleaf](https://www.thymeleaf.org/) - Server-side Java template engine (Template dos e-mails)
+* [Swagger](https://swagger.io/) - API documentation (Documentação da API)
 
 
 ## Rodando a Aplicação Localmente
@@ -101,6 +102,8 @@ Se estiver rodando localmente, a URI estará configurada em application.properti
 |/estados       | GET | Recuperar estados |
 |/estados/{id}/cidades  | GET | Recuperar cidades baseado em no ID de um estado |
 
+
+Para mais detalhes, também é possível visualizar a documentação da API com swagger em http://localhost:8080/swagger-ui.html
 
 ## Arquivos e Diretórios
 
